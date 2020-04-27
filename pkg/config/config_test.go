@@ -8,11 +8,13 @@ import (
 func TestNew(t *testing.T) {
 	t.Run("New config", func(t *testing.T) {
 		os.Setenv("POD_NAMESPACE", "default")
+		os.Setenv("MCH_CHART_DIR", "./charts/")
 		os.Setenv("MCH_REPO_PORT", "3000")
 		os.Setenv("MCH_REPO_SERVICE", "repo-svc")
 
 		got := New()
 		if got.Namespace != "default" ||
+			got.ChartDir != "./charts/" ||
 			got.Port != "3000" ||
 			got.Service != "repo-svc" {
 			t.Errorf("Config not set to env variables")
@@ -20,8 +22,8 @@ func TestNew(t *testing.T) {
 	})
 
 	t.Run("New config", func(t *testing.T) {
-		os.Unsetenv("MCH_CHART_DIR")
 		os.Unsetenv("POD_NAMESPACE")
+		os.Unsetenv("MCH_CHART_DIR")
 		os.Unsetenv("MCH_REPO_PORT")
 		os.Unsetenv("MCH_REPO_SERVICE")
 
