@@ -2,7 +2,7 @@ git@github.com:open-cluster-management/application-chart.git,release-2.2
 git@github.com:open-cluster-management/cert-manager-chart.git,release-2.2
 git@github.com:open-cluster-management/cert-manager-webhook-chart.git,release-2.2
 git@github.com:open-cluster-management/configmap-watcher-chart.git,release-2.2
-git@github.com:open-cluster-management/console-chart.git,17d09a8a669f96bd8c676ff402a28faf07b6d7b7
+git@github.com:open-cluster-management/console-chart.git,cf148632f2f0d49f26ede6ddaf6cae2f285f7a91
 git@github.com:open-cluster-management/grc-chart.git,release-2.2
 git@github.com:open-cluster-management/kui-web-terminal-chart.git,release-2.2
 git@github.com:open-cluster-management/management-ingress-chart.git,release-2.2
