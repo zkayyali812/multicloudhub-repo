@@ -5,7 +5,6 @@ package repo
 import (
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"net/http/httptest"
@@ -155,7 +154,7 @@ func Test_createIndex(t *testing.T) {
 
 func TestReindex(t *testing.T) {
 	// Serve charts in tempDir
-	tmpDir, err := ioutil.TempDir("testdata", "charts_tmp_")
+	tmpDir, err := os.MkdirTemp("testdata", "charts_tmp_")
 	if err != nil {
 		t.Fatalf("Could not create chart dir")
 	}
@@ -222,7 +221,7 @@ func TestReindex(t *testing.T) {
 
 // helper for getting an index from an http response
 func getIndex(res io.Reader) (*repo.IndexFile, error) {
-	b, err := ioutil.ReadAll(res)
+	b, err := io.ReadAll(res)
 	i := &repo.IndexFile{}
 	if err != nil {
 		return i, err
